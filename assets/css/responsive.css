@@ -1397,7 +1397,7 @@ VOU USAR GRID QUANDO EU QUERO DIVIDIR ALGO DENTRO DA PAGINA POR EXEMPLO 3 COLUNA
     width: 100%;
     min-height: 100vh;
     flex-direction: column;
-    margin-left: 23rem; /* Adiciona espaço para a navegação fixa */
+    margin-left: 21rem; /* Adiciona espaço para a navegação fixa */
     max-width: 40vw;
     word-break: keep-all;
 
