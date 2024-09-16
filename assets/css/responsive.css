@@ -120,6 +120,79 @@ VOU USAR GRID QUANDO EU QUERO DIVIDIR ALGO DENTRO DA PAGINA POR EXEMPLO 3 COLUNA
 
 
 
+@media(max-width: 450px) {
+    /* Estilos aplicados apenas quando a largura da tela for 973px ou menor */
+    
+    .nav {
+        display: flex; /* Inicialmente, o menu (nav) será exibido como flexbox */
+        margin-top: 2rem; /* Cria um espaço de 2rem acima do menu */
+        justify-content: center; /* Centraliza os itens dentro do menu */
+        text-align: center; /* Centraliza o texto dos itens */
+    }
+
+    .img-nav {
+        left: 0rem; /* Posiciona o elemento img-nav à esquerda sem deslocamento */
+        top: -2rem; /* Desloca o elemento img-nav 2rem para cima */
+    }
+
+    .nav ul {
+        display: flex; /* Define o contêiner de lista como flexbox */
+        flex-direction: column; /* Faz com que os itens da lista sejam organizados em coluna */
+        line-height: 5px; /* Ajusta o espaçamento vertical entre os itens da lista */
+        margin-top: 0.5rem; /* Adiciona um pequeno espaço entre o topo da lista e o conteúdo anterior */
+    }
+
+    .nav {
+        display: none; /* Esta regra sobrescreve a anterior, escondendo o menu (nav) por padrão */
+    }
+
+    .close-menu {
+        position: fixed; /* Fixa o elemento na tela, mantendo sua posição ao rolar a página */
+        z-index: 1; /* Garante que este elemento fique acima de outros */
+        top: 0; /* Posiciona o elemento no topo da página */
+        left: 0; /* Alinha o elemento à esquerda da tela */
+    }
+
+    .close-menu-label::after {
+        content: '☰'; /* Exibe o ícone de "hambúrguer" (três linhas) como conteúdo adicional */
+        position: fixed; /* Fixa o ícone de menu na tela */
+        z-index: 1; /* Garante que o ícone fique acima de outros elementos */
+        top: 2rem; /* Posiciona o ícone no topo da tela */
+        right: 15rem; /* Afasta o ícone da borda direita em 2rem */
+        background-color: black; /* Define o fundo do ícone como preto */
+        color: white; /* Define a cor do ícone como branco */
+        font-size: 3rem; /* Define o tamanho da fonte (ícone) como 3rem */
+        padding: 1rem; /* Adiciona um preenchimento interno ao redor do ícone */
+        line-height: 3rem; /* Define a altura da linha para alinhar verticalmente o ícone */
+        width: 3rem; /* Define a largura do ícone */
+        height: 3rem; /* Define a altura do ícone */
+        text-align: center; /* Centraliza o conteúdo (ícone) horizontalmente */
+        cursor: pointer; /* Muda o cursor para um ponteiro ao passar sobre o ícone */
+    }
+
+
+    .close-menu:checked ~ .nav {
+        display: block; /* Exibe o menu (nav) quando o checkbox close-menu estiver marcado */
+    }
+
+    .close-menu:checked ~ .close-menu-label::after {
+        display: block; /* Garante que o ícone de fechar seja exibido quando o menu estiver aberto */
+        content: '×'; /* Troca o ícone de "hambúrguer" por um ícone de "fechar" (X) */
+    }
+}
+
+.close-menu {
+    display: none; /* Esconde o checkbox de controle (close-menu) */
+}
+
+
+
+
+
+
+
+
+
 
 
 .img-nav {
