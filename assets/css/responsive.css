@@ -1,0 +1,1488 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    font-size: 62.5%;
+}
+
+.container {
+    width: 100%;
+}
+
+
+
+/*MEU ERRO AQUI FOI FAZER O CONTAINER PRINCINPAL COMO GRID, DEVERIA TER FEITO FLEX E USAR MIN-HEIGTH E MIN-WIDTH 100VH E 100VW
+VOU USAR GRID QUANDO EU QUERO DIVIDIR ALGO DENTRO DA PAGINA POR EXEMPLO 3 COLUNAS CADA UM COM UMA IMAGEM.*/
+
+
+
+
+.grid {
+    display: grid;
+    grid-template-rows: 90px 1f 60px;
+    grid-template-columns: 1fr 200px;
+    grid-template-areas:'nav nav' 'main main' 'rodape rodape';
+    max-width: 100% ;
+    
+}
+
+
+
+
+.nav {
+    grid-area: nav;
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    
+    
+    
+}
+
+
+
+
+
+
+@media(max-width: 973px) {
+    /* Estilos aplicados apenas quando a largura da tela for 973px ou menor */
+    
+    .nav {
+        display: flex; /* Inicialmente, o menu (nav) será exibido como flexbox */
+        margin-top: 2rem; /* Cria um espaço de 2rem acima do menu */
+        justify-content: center; /* Centraliza os itens dentro do menu */
+        text-align: center; /* Centraliza o texto dos itens */
+    }
+
+    .img-nav {
+        left: 0rem; /* Posiciona o elemento img-nav à esquerda sem deslocamento */
+        top: -2rem; /* Desloca o elemento img-nav 2rem para cima */
+    }
+
+    .nav ul {
+        display: flex; /* Define o contêiner de lista como flexbox */
+        flex-direction: column; /* Faz com que os itens da lista sejam organizados em coluna */
+        line-height: 5px; /* Ajusta o espaçamento vertical entre os itens da lista */
+        margin-top: 0.5rem; /* Adiciona um pequeno espaço entre o topo da lista e o conteúdo anterior */
+    }
+
+    .nav {
+        display: none; /* Esta regra sobrescreve a anterior, escondendo o menu (nav) por padrão */
+    }
+
+    .close-menu {
+        position: fixed; /* Fixa o elemento na tela, mantendo sua posição ao rolar a página */
+        z-index: 1; /* Garante que este elemento fique acima de outros */
+        top: 0; /* Posiciona o elemento no topo da página */
+        left: 0; /* Alinha o elemento à esquerda da tela */
+    }
+
+    .close-menu-label::after {
+        content: '☰'; /* Exibe o ícone de "hambúrguer" (três linhas) como conteúdo adicional */
+        position: fixed; /* Fixa o ícone de menu na tela */
+        z-index: 1; /* Garante que o ícone fique acima de outros elementos */
+        top: 2rem; /* Posiciona o ícone no topo da tela */
+        right: 2rem; /* Afasta o ícone da borda direita em 2rem */
+        background-color: black; /* Define o fundo do ícone como preto */
+        color: white; /* Define a cor do ícone como branco */
+        font-size: 3rem; /* Define o tamanho da fonte (ícone) como 3rem */
+        padding: 1rem; /* Adiciona um preenchimento interno ao redor do ícone */
+        line-height: 3rem; /* Define a altura da linha para alinhar verticalmente o ícone */
+        width: 3rem; /* Define a largura do ícone */
+        height: 3rem; /* Define a altura do ícone */
+        text-align: center; /* Centraliza o conteúdo (ícone) horizontalmente */
+        cursor: pointer; /* Muda o cursor para um ponteiro ao passar sobre o ícone */
+    }
+
+
+    .close-menu:checked ~ .nav {
+        display: block; /* Exibe o menu (nav) quando o checkbox close-menu estiver marcado */
+    }
+
+    .close-menu:checked ~ .close-menu-label::after {
+        display: block; /* Garante que o ícone de fechar seja exibido quando o menu estiver aberto */
+        content: '×'; /* Troca o ícone de "hambúrguer" por um ícone de "fechar" (X) */
+    }
+}
+
+.close-menu {
+    display: none; /* Esconde o checkbox de controle (close-menu) */
+}
+
+
+
+
+
+
+
+.img-nav {
+    width: 150px;
+    height: 150px;
+    background-image: url("/assets/img/DALL·E\ 2024-09-06\ 12.00.01\ -\ A\ modern\ logo\ for\ a\ company\ called\ \'CREDENCIAL\'.\ The\ design\ should\ reflect\ professionalism\ and\ trust\,\ with\ a\ clean\,\ corporate\ style.\ The\ logo\ features.webp");
+    background-size: cover;
+    position: relative;
+    right: 100px;
+    filter: brightness(100%);
+    clip-path: circle(50%);
+    max-width: 100%;
+    
+
+
+    
+}
+
+.img-nav:hover {
+    transform: rotate(360deg); /* Corrigir a rotação no hover */
+    transition: transform 0.4s ease-in-out; /* Adicionar uma transição suave */
+}
+
+
+
+
+.nav ul {
+    display: flex;
+    gap: 60px;
+    
+}
+
+
+
+.nav ul li {
+    list-style-type: none;
+    
+    
+    
+
+}
+
+
+.nav ul li a:hover{
+    font-size: 2.8rem;
+    background-color: rgba(0, 0, 0, 0.1); /* Efeito de destaque no fundo */
+    transform: scale(1.5); /* Aumenta o tamanho do link */
+
+    
+    
+}
+
+
+.nav ul li a:active{
+    transform: scale(0.95); /* Diminui o tamanho do link ao ser clicado */
+    background-color: rgba(255, 255, 255, 0.5);
+
+}
+
+
+.nav ul li a{
+    text-decoration: none;
+    font-size: 2.3rem;
+    color: black;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+
+.main {
+    display: flex;
+    grid-area: main;
+    background-image: url("/assets/img/page-turner.svg");
+    margin: 4px 0;
+    flex-flow: column;
+    border-radius: 12px;
+    padding: 9px;
+    max-width: 100%;
+    
+    
+    
+    
+}
+
+
+.main h1 {
+    display: flex;
+    font-size: 4.8rem;
+    justify-content: center;
+    padding: 5px;
+    
+    
+    
+}
+
+
+.grid-main{
+    display: flex;
+    flex-wrap: wrap; /*aqui se a tela ficar menor ele vai quebrar pra se dividir aqui ficou bom*/
+    gap: 15px; /* Espaço entre os itens */
+    justify-content: flex-start; /* Alinhamento dos itens */
+    flex-direction: row;
+    position: relative;
+    padding: 15px;
+    
+}
+
+
+
+
+
+.grid-main-area {
+    display: flex;
+    background: linear-gradient(rgba(0, 0, 0, 0.02), white);
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    flex-direction: column;
+    filter: drop-shadow(5px 5px 4px black);
+    margin-bottom: 5px;
+    overflow: auto;
+    
+
+    
+}
+
+.grid-main-area:hover{
+    transform: translateX(-5px);
+    
+    
+
+}
+
+
+
+
+
+.grid-main-area h1 a {
+    display: flex;
+    font-size: 2.2rem;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    
+    
+}
+
+
+
+
+
+
+.grid-main-area h2 {
+    padding: 5px;
+    font-size: 1.7rem;
+
+
+}
+
+
+.content-grid-main {
+    display: flex;
+    font-size: 1.4rem;
+    margin: 0 0 0 20px;
+    
+
+}
+
+
+
+
+.content-grid-main ul li a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+.grid-main-area-two {
+    display: flex;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border-radius: 15px;
+    justify-content: flex-start;
+    flex-direction: column;
+    filter: drop-shadow(5px 5px 4px black);
+    overflow: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.02), white);
+    max-width: 100%;
+   
+    
+}
+
+.grid-main-area-two:hover{
+    transform: translateX(-5px);
+
+}
+
+
+
+.grid-main-area-two h1 a {
+    display: flex;
+    font-size: 2.2rem;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    
+}
+
+
+.grid-main-area-two h2 {
+    padding: 5px;
+    font-size: 1.7rem;
+
+}
+
+
+
+
+.content-grid-main-two {
+    display: flex;
+    font-size: 1.4rem;
+    margin: 0 0 0 20px;
+
+}
+
+
+.content-grid-main-two ul li a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: black;
+}
+
+
+
+
+
+
+
+.grid-area-three {
+    display: flex;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border-radius: 15px;
+    justify-content: flex-start;
+    flex-direction: column;
+    filter: drop-shadow(5px 5px 4px black);
+    overflow: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.02), white);
+}
+
+
+
+.grid-area-three:hover{
+    transform: translateX(-5px);
+
+}
+
+
+
+.grid-area-three h1 a {
+    display: flex;
+    font-size: 2.2rem;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    
+}
+
+
+.grid-area-three h2 {
+    padding: 5px;
+    font-size: 1.7rem;
+
+}
+
+
+
+
+.content-grid-main-three {
+    display: flex;
+    font-size: 1.4rem;
+    margin: 0 0 0 20px;
+
+}
+
+
+.content-grid-main-three ul li a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: black;
+}
+
+
+
+
+
+
+
+
+.grid-area-four {
+    display: flex;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border-radius: 15px;
+    justify-content: flex-start;
+    flex-direction: column;
+    filter: drop-shadow(5px 5px 4px black);
+    overflow: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.02), white);
+}
+
+
+
+.grid-area-four:hover{
+    transform: translateX(-5px);
+
+}
+
+
+
+.grid-area-four h1 a {
+    display: flex;
+    font-size: 2.2rem;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    
+}
+
+
+.grid-area-four h2 {
+    padding: 5px;
+    font-size: 1.7rem;
+
+}
+
+
+
+
+.content-grid-main-four {
+    display: flex;
+    font-size: 1.4rem;
+    margin: 0 0 0 20px;
+
+}
+
+
+.content-grid-main-four ul li a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: black;
+}
+
+
+
+
+
+
+
+.grid-area-five {
+    display: flex;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border-radius: 15px;
+    justify-content: flex-start;
+    flex-direction: column;
+    filter: drop-shadow(5px 5px 4px black);
+    overflow: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.02), white);
+    
+}
+
+
+
+.grid-area-five:hover{
+    transform: translateX(-5px);
+
+}
+
+
+
+.grid-area-five h1 a {
+    display: flex;
+    font-size: 2.2rem;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    
+}
+
+
+.grid-area-five h2 {
+    padding: 5px;
+    font-size: 1.7rem;
+
+}
+
+
+
+
+.content-grid-main-five {
+    display: flex;
+    font-size: 1.4rem;
+    margin: 0 0 0 20px;
+
+}
+
+
+.content-grid-main-five ul li a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: black;
+}
+
+
+
+
+
+.grid-area-six {
+    display: flex;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border-radius: 15px;
+    justify-content: flex-start;
+    flex-direction: column;
+    filter: drop-shadow(5px 5px 4px black);
+    overflow: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.02), white);
+    
+}
+
+
+
+.grid-area-six:hover{
+    transform: translateX(-5px);
+
+}
+
+
+
+.grid-area-six h1 a {
+    display: flex;
+    font-size: 2.2rem;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    
+}
+
+
+.grid-area-six h2 {
+    padding: 5px;
+    font-size: 1.7rem;
+
+}
+
+
+
+
+.content-grid-main-six {
+    display: flex;
+    font-size: 1.4rem;
+    margin: 0 0 0 20px;
+
+}
+
+
+.content-grid-main-six ul li a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: black;
+}
+
+
+
+
+
+
+/*SECTION-TWO*/
+
+.container-two{
+    display: flex;
+    background-color: white;
+    grid-area: main;
+    border-radius: 5px;
+    flex-direction: column;
+    border-top: 1px solid #eee;
+    padding: 20px;
+    
+    
+    
+    
+}
+
+
+.container-two h1 {
+    display: flex;
+    font-size: 3.9rem;
+    justify-content: center;
+    padding: 1.9rem;
+    font-family: 'Poppins', sans-serif; /* Uma fonte mais moderna */
+    color: #333; /* Cor mais sutil e moderna */
+    background-color: rgba(0, 0, 0, 0.03); /* Um fundo mais leve */
+    border-radius: 40px;
+    transition: all 0.3s ease-in-out; /* Transição suave ao interagir */
+    animation: moveImage 5s backwards ease-in-out; /* Aplica a animação continuamente */
+    margin-bottom: 2rem;
+
+}
+
+.container-two h1:hover {
+    background-color: rgba(0, 0, 0, 0.2); /* Fundo mais escuro no hover */
+    color: #fff; /* Texto claro ao passar o mouse */
+    transform: translateY(-5px);
+}
+
+@keyframes moveImage {
+    0% {
+        transform: translateX(-20%); /* Inicia no ponto original */
+    }
+    50% {
+        transform: translateX(10%); /* Move a imagem 30 pixels para a direita */
+    }
+    100% {
+        transform: translateX(0); /* Retorna ao ponto original */
+    }
+}
+
+
+
+
+
+
+
+
+.main-two{
+    display: grid;
+    grid-template-rows: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-area: 'header header' 'main';
+    display: flex;
+    
+
+}
+
+
+
+
+.header-main{
+    grid-area: header;
+    justify-content: flex-start;
+    text-align: start;
+    display: flex;
+    
+    
+
+}
+
+
+.header-main h2{
+    color: black;
+    font-size: 1.4rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    justify-content: flex-start;
+    
+    
+}
+
+
+
+
+.div-content {
+    grid-template-columns: 1fr 1fr;
+    grid-area:'main' 'main';
+    display: grid;
+    background-color: white;
+    margin: 10px 0 10px 0 ;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    
+    
+}
+
+
+
+
+.div-content img{
+    height: auto;
+    background-size: cover;
+    object-fit: cover;
+    max-width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    
+
+}
+
+
+.div-content .img2{
+    height: auto;
+    background-size: cover;
+    object-fit: cover;
+    max-width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    margin-left: 5rem;
+    
+
+}
+
+
+
+.div-content-descrition{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    top: -3rem;
+}
+
+
+.div-content-descrition2{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 6rem;
+    
+}
+
+
+
+
+
+.div-content-descrition h2{
+    font-size: 3.2rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    left: -10rem;
+    
+}
+
+
+.div-content-descrition2 h2{
+    font-size: 3.2rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    margin-top: 1.9rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    left: -6rem;
+
+    
+    
+}
+
+
+.navpython{
+    display: flex;
+    font-size: 1.9rem;
+    justify-content: center;
+    text-wrap: pretty;
+    margin-right: 1rem;
+    margin-left: 2.5rem;
+    
+    
+    
+}
+
+
+.navpython ul li a{
+    font-size: 1.9rem;
+    line-height: 1.5;
+    
+}
+
+
+.navpython ul li a::selection{
+    color: green;
+}
+
+
+
+.nav-especification{
+    margin: 14px;
+}
+
+
+.nav-especification ul li a{
+    font-size: 1.6rem;
+}
+
+
+
+
+
+.nav-especificationt-two{
+    margin: 14px;
+    padding: 10px;
+    font-size: 1.9rem;
+    
+
+}
+
+.aqui{
+    grid-area: main;
+    width: 100%;
+    background-size: cover;
+    
+    
+    
+}
+
+.aqui h2 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 3.5rem;
+    padding: 1.9rem;
+    font-family: 'Poppins', sans-serif; /* Uma fonte mais moderna */
+    color: #333; /* Cor mais sutil e moderna */
+    background-color: rgba(255, 255, 255, 0.2); /* Um fundo mais leve */
+    border-radius: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+    transition: all 0.3s ease-in-out; /* Transição suave ao interagir */
+    animation: moveImage 5s backwards ease-in-out; /* Aplica a animação continuamente */
+}
+
+.aqui h2:hover {
+    background-color: rgba(0, 0, 0, 0.2); /* Fundo mais escuro no hover */
+    color: #fff; /* Texto claro ao passar o mouse */
+    transform: translateY(-5px);
+}
+
+@keyframes moveImage {
+    0% {
+        transform: translateX(-20%); /* Inicia no ponto original */
+    }
+    50% {
+        transform: translateX(10%); /* Move a imagem 30 pixels para a direita */
+    }
+    100% {
+        transform: translateX(0); /* Retorna ao ponto original */
+    }
+}
+
+
+
+
+
+/* Carousel container */
+.carousel-container {
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    background-size: cover;
+    
+}
+
+/* Carousel slide */
+.carousel-slide {
+    display: flex;
+    width: 100%; /* Ajuste para o número de imagens */
+    animation: slide 40s infinite;
+
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100vh;
+    border-radius: 12px;
+    margin: 6px;
+    flex-shrink: 0;
+    background-size: cover;
+}
+
+
+
+
+/* Keyframes para a animação */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-100%); } /* Mostra a segunda imagem */
+    50% { transform: translateX(-200%); } /* Mostra a terceira imagem */
+    75% { transform: translateX(-300%); } /* Mostra a quarta imagem */
+    100% { transform: translateX(0); }    /* Volta para a primeira imagem */
+}
+
+
+
+.imgpython2 {
+    display: flex;
+    grid-area: main;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.img-two figcaption{
+    margin: 0 0 0 7px;
+
+    
+    
+}
+
+
+.nav-especificationt-two ul li a{
+    font-size: 1.6rem;
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+.rodape {
+    display: grid;
+    background-image: url("/assets/img/cornered-stairs.svg");
+    justify-content: center;
+    border-radius: 0.5rem  0.5rem 0  0.5rem;
+    
+    
+    
+
+    
+}
+
+
+.rodape h1 {
+    display: flex;
+    color: wheat;
+    justify-content: center;
+    font-size: 3.4rem;
+    padding: 10px;
+
+}
+
+
+.backwhite {
+    display: flex;
+    background: linear-gradient(white, black);
+    border-radius: 10px ;
+    width: 700px;
+    height: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    
+
+  
+
+}
+
+
+
+.input-name{
+    font-size: 1.8rem;
+    color: black;
+    font-family: fantasy;
+    padding: 5px;
+    margin: 2px;
+    
+    
+}
+
+
+.backwhite .input-name input{
+    border-radius: 7px;
+    padding: 5px;
+    margin: 0 0 0 2px;
+    width: 200px;
+
+    
+}
+
+
+
+
+
+.backwhite .input-email input{
+    border-radius: 7px;
+    padding: 5px;
+    margin: 0 0 0 2px;
+    width: 250px;
+
+    
+}
+
+
+.input-email{
+    font-size: 1.8rem;
+    color: black;
+    font-family: fantasy;
+    padding: 5px;
+    margin: 2px;
+    
+    
+}
+
+
+.backwhite .input-tel input{
+    border-radius: 7px;
+    padding: 5px;
+    margin: 0 0 0 2px;
+    width: 150px;
+    position: relative;
+    
+}
+
+
+.input-tel{
+    position: relative;
+    font-size: 1.8rem;
+    color: black;
+    font-family: fantasy;
+    padding: 5px;
+    margin: 2px;
+    
+    
+
+}
+
+
+.backwhite .input-assunt input{
+    border-radius: 7px;
+    padding: 5px;
+    margin: 0 0 0 2px;
+    width: 350px;
+    position: relative;
+    
+}
+
+
+.input-assunt{
+    position: relative;
+    font-size: 1.8rem;
+    color: black;
+    font-family: fantasy;
+    padding: 5px;
+    margin: 2px;
+    
+    
+
+}
+
+
+
+
+
+
+.input-content textarea{
+    position: relative;
+    font-size: 1.8rem;
+    color: black;
+    font-family: fantasy;
+    padding: 5px;
+    margin: 2px;
+    width: 670px;
+    height: 100px;
+    border-radius: 10px;
+    
+    
+    
+    
+    
+
+}
+
+
+
+.btn-rodape {
+    display: flex;
+    align-items: center;    /* Centraliza verticalmente */
+    margin-top: 20px;       /* Adiciona espaço acima do botão */
+}
+
+.btn-rodape button {
+    border-radius: 3px;
+    font-size: 1.8rem;
+    padding: 10px 20px;      /* Ajuste de padding para uma melhor aparência */
+    cursor: pointer;         /* Mostra o ponteiro de clique ao passar o mouse */
+    border: none;            /* Remove a borda padrão */
+    background-color: #4CAF50; /* Cor de fundo do botão */
+    color: white;            /* Cor do texto */
+    transition: background-color 0.3s ease; /* Animação suave na cor de fundo */
+}
+
+.btn-rodape button:hover {
+    background-color: gray; /* Cor de fundo ao passar o mouse */
+}
+
+
+
+
+.redes-sociais-e-contatos {
+    display: flex;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(rgba(0,0,0,0.9), white);
+    position: relative;
+    flex-direction: column;
+    max-width: 100%;
+    margin-top: 0.5rem;
+   
+    
+    
+    
+
+}
+
+.redes-sociais-e-contatos p {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.redes-sociais-e-contatos a img,
+.redes-sociais-e-contatos p img {
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+}
+
+.redes-sociais-e-contatos p span {
+    margin-left: 10px;
+    font-size: 2.2rem;
+    color: #333;
+}
+
+
+
+
+
+
+
+
+
+/*DO OUTRO HTML WEB*/
+
+
+
+.section-web {
+    display: grid;
+    background-image: url("/assets/img/scattered-forcefields\ \(2\).svg");
+    grid-template-rows: 10rem 1fr;
+    grid-template-columns: 1fr; /* O menu será fixo, então removemos a coluna do grid */
+    background-size: cover;
+    border: 0.2rem solid white;
+    
+    /* Define as áreas da grid */
+    grid-template-areas: 
+        'header'   /* O cabeçalho ocupa a primeira linha inteira */
+        'main';      /* Na segunda linha, somente o main ocupa o espaço central */
+
+    
+}
+
+.main-web {
+    grid-area: header;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    
+
+}
+
+.main-web h1 {
+    font-size: 4.8rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+
+
+
+
+
+.nav-web {
+    position: fixed;
+    top: 9rem; /* Alinha o menu logo abaixo do header */
+    left: 0;
+    width: 20rem; /* Largura fixa para o menu */
+    height: calc(100vh - 9rem); /* Ocupa a altura da tela, descontando o header */
+    display: flex;
+    justify-content: center;
+    background: white;
+    border-radius: 2rem;
+    overflow-x: auto;
+    
+    
+    
+    
+    
+    
+}
+
+.nav-web h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-family: sans-serif;
+}
+
+.content-nav {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.7rem;
+    
+    
+    
+
+    
+    
+    
+    
+}
+
+.content-nav ul li{
+    margin-bottom: 2rem;
+    
+    
+    
+}
+
+
+
+.content-nav ul li a {
+    color: blueviolet;
+    
+    
+
+    
+    
+}
+
+
+
+.section-main {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    margin-left: 21rem; /* Adiciona espaço para a navegação fixa */
+    max-width: 83vw;
+    word-break: keep-all;
+}
+
+.section-main h2 {
+    color: white;
+    font-size: 3.1rem;
+    margin-left: 1.8rem;
+    margin-top: 2rem;
+}
+
+.section-main-content {
+    color: white;
+    font-size: 1.9rem;
+    margin-bottom: 1rem;
+}
+
+
+
+
+@media(max-width: 1270px){
+    .section-main {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    margin-left: 21rem; /* Adiciona espaço para a navegação fixa */
+    max-width: 75vw;
+    word-break: keep-all;
+
+    }
+}
+
+
+@media(max-width: 900px){
+    .section-main {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    margin-left: 21rem; /* Adiciona espaço para a navegação fixa */
+    max-width: 60vw;
+    word-break: keep-all;
+
+    }
+}
+
+
+@media(max-width: 600px){
+    .section-main {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    margin-left: 22rem; /* Adiciona espaço para a navegação fixa */
+    max-width: 50vw;
+    word-break: keep-all;
+    
+
+    }
+
+    .main-web h1{
+        font-size: 3.8rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
+
+    }
+
+    .section-main h2 {
+        color: white;
+        font-size: 2.1rem;
+        margin-left: 1.8rem;
+        margin-top: 2rem;
+    }
+
+    .section-main-content {
+        color: white;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        text-align: justify;
+    }
+
+    .content-nav ul li{
+        margin-bottom: 1.5rem;
+        
+        
+        
+    }
+
+}
+
+
+@media(max-width: 450px){
+    .section-main {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    margin-left: 23rem; /* Adiciona espaço para a navegação fixa */
+    max-width: 40vw;
+    word-break: keep-all;
+
+    }
+
+    .main-web h1{
+        font-size: 3.0rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
+
+    }
+
+    .section-main h2 {
+        color: white;
+        font-size: 1.5rem;
+        margin-left: 1.8rem;
+        margin-top: 2rem;
+    }
+
+    .section-main-content {
+        color: white;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .content-nav ul li{
+        margin-bottom: 1.5rem;
+        
+        
+        
+    }
+    
+
+}
+
+
+
+@media(max-width: 360px){
+    .section-main {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    margin-left: 21rem; /* Adiciona espaço para a navegação fixa */
+    max-width: 35vw;
+    word-break: keep-all;
+
+    }
+
+    .main-web h1{
+        font-size: 3.0rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
+
+    }
+
+    .section-main h2 {
+        color: white;
+        font-size: 1.5rem;
+        margin-left: 1.8rem;
+        margin-top: 2rem;
+    }
+
+    .section-main-content {
+        color: white;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .content-nav ul li{
+        margin-bottom: 1.5rem;
+        
+        
+        
+    }
+    
+
+}
+
+
+
+/*ESSA É SÓ EXEMPLO, NÃO ESTAMOS USANDO*/
+.galerry {
+    width: 100%; /* O elemento ocupará 100% da largura do seu contêiner pai */
+    max-width: 36rem; /* A largura máxima do elemento será 36 rems */
+    max-height: 36rem; /* A altura máxima do elemento será 36 rems */
+    overflow: hidden; /* Qualquer conteúdo que ultrapassar as dimensões do elemento será ocultado */
+}
